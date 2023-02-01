@@ -2,10 +2,10 @@
 A Simple aduty Script where you can alle configutirable
 
 # Preview
-- [Video]()
+- [Video](https://streamable.com/vpi3z7)
 
 **Requirements**
-- ESX Core
+- ESX Core(skinchanger, esx_skin, es_extended)
   - [esx_core](https://github.com/esx-framework/esx_core)
   
 # Installation
