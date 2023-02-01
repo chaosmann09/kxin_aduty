@@ -1,6 +1,9 @@
 # kxin_aduty
 A Simple aduty Script where you can alle configutirable
 
+# Support
+- [Discord](https://discord.gg/EcZakKASEm)
+
 # Preview
 - [Video](https://streamable.com/vpi3z7)
 
