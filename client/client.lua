@@ -66,11 +66,23 @@ function setAduty()
     TriggerEvent('skinchanger:getSkin', function(skin)
     ESX.TriggerServerCallback('aduty:getGroup', function(group)
         if group == "admin" then
+            if skin.sex == 0 then
                 TriggerEvent("skinchanger:loadClothes", skin, Config.Uniform_Male)
+            elseif skin.sex == 1 then
+                TriggerEvent("skinchanger:loadClothes", skin, Config.Uniform_Female)
+            end
             elseif group == "mod" then
-                TriggerEvent("skinchanger:loadClothes", skin, Config.Uniform_Male)
+                if skin.sex == 0 then
+                    TriggerEvent("skinchanger:loadClothes", skin, Config.Uniform_Male)
+                elseif skin.sex == 1 then
+                    TriggerEvent("skinchanger:loadClothes", skin, Config.Uniform_Female)
+                end
             elseif group == "sup" then
-                TriggerEvent("skinchanger:loadClothes", skin, Config.Uniform_Male)
+                if skin.sex == 0 then
+                    TriggerEvent("skinchanger:loadClothes", skin, Config.Uniform_Male)
+                elseif skin.sex == 1 then
+                    TriggerEvent("skinchanger:loadClothes", skin, Config.Uniform_Female)
+                end
             end
         end)
     end)
