@@ -8,6 +8,8 @@ Config.Animation = true -- if you want to have a animation when you go/left the 
 
 Config.Command = "aduty" -- command /aduty for go in duty | default: "aduty"
 
+Config.Keybinds = "E" -- Press a key to be in Duty
+
 Config.Locale = 'en'
 
 Config.Uniform = true -- default: true
