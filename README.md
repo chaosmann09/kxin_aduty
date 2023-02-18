@@ -22,6 +22,9 @@ A Simple aduty Script where you can alle configutirable
 - Language Support
 - Custom Aduty Uniform
 
+# Support
+- [Discord](https://discord.gg/EcZakKASEm)
+
 # Copyright
 `Copyright © KxinMensch 
 All right reserved
