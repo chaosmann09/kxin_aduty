@@ -62,6 +62,26 @@ RegisterCommand(Config.Command ,function()
     end)
 end)
 
+RegisterCommand('tpm', function(source, args, raw)
+    ESX.TriggerServerCallback('aduty:getGroup', function(group)
+        if group == "admin" or group == "mod" or group == "sup" then
+            if duty then
+                local position = GetBlipInfoIdCoord(GetFirstBlipInfoId(8))
+                if DoesBlipExist(GetFirstBlipInfoId(8)) then
+                    unnusedBool, spawnZ = GetGroundZFor_3dCoord(position.x, position.y, 99999.0, 1);
+                    SetEntityCoords(PlayerPedId(), position.x, position.y, spawnZ+ 0.1);
+                end
+            else
+                if Config.useESX then
+                    ESX.ShowNotification(Translation[Config.Locale]['not_induty'])
+                else
+                    notify(Translation[Config.Locale]['not_induty'])
+                end
+            end
+        end
+    end)
+end)
+
 function setAduty()
     TriggerEvent('skinchanger:getSkin', function(skin)
     ESX.TriggerServerCallback('aduty:getGroup', function(group)

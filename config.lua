@@ -8,7 +8,7 @@ Config.Animation = true -- if you want to have a animation when you go/left the 
 
 Config.Command = "aduty" -- command /aduty for go in duty | default: "aduty"
 
-Config.Keybinds = "E" -- Press a key to be in Duty
+Config.Keybinds = "E" -- Press a key to be in Duty | Not function!!!
 
 Config.Locale = 'en'
 
@@ -39,10 +39,14 @@ Translation = {
         ['admin_on'] = 'Du bist nun im ~r~Administrator~s~ Díenst!',
         ['admin_off'] = 'Du bist nun nicht mehr im ~r~Administrator~s~ Díenst!',
         ['permission'] = '~r~Du bist kein Teamler!',
+        ['not_induty'] = '~r~Du bist nicht im Aduty system',
+        ['suc_telport'] = '~r~Du hast dich zum Wegpunkt teleportiert!',
     },
     ['en'] = {
         ['admin_on'] = 'You are now on ~r~Duty~s~!',
         ['admin_off'] = 'You are now out of ~r~Duty~s~!',
         ['permission'] = '~r~You are not a member from the Server-Team',
+        ['not_induty'] = '~r~Your are not in Duty!',
+        ['suc_telport'] = '~y~You been Teleport',
     },
 }
