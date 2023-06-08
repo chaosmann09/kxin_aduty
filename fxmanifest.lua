@@ -10,13 +10,10 @@ lua54 'yes'
 
 client_scripts {
     'config.lua',
-<<<<<<< HEAD
 	'versioncheck.lua',
 	'client/client.lua',
-=======
     'versioncheck.lua',
     'client/client.lua',
->>>>>>> 9e8b891558b359e4b05e802684f1563656bc33d7
 }
 
 server_scripts {

@@ -10,7 +10,7 @@ Config.Command = "aduty" -- command /aduty for go in duty | default: "aduty"
 
 Config.Keybinds = "E" -- Press a key to be in Duty | Not function!!!
 
-Config.Locale = 'en'
+Config.Locale = 'en' -- Here you can set the Language | default: 'en'
 
 Config.Uniform = true -- default: true
 

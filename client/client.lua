@@ -3,6 +3,7 @@ ESX = nil
 ESX = exports['es_extended']:getSharedObject()
 
 local duty = false
+local playerBlips = {}
 
 RegisterCommand(Config.Command ,function()
     local playerPed = PlayerPedId()
@@ -108,6 +109,67 @@ function setAduty()
     end)
 end
 
+CreateThread(function()
+    while true do
+        
+        if duty then
+            -- Schleife durch alle Spieler
+            for _, player in ipairs(ESX.Game.GetPlayers()) do
+                -- Hole die ID und den Steamnamen des Spielers
+                local playerID = GetPlayerServerId(player)
+                local playerName = GetPlayerName(player)
+                
+                local playerCoords = GetEntityCoords(GetPlayerPed(player))
+
+                local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), x, y, z, true)
+                
+                -- Text über dem Kopf des Spielers rendern
+                if distance <= 50 then
+                    local onScreen, screenX, screenY = World3dToScreen2d(playerCoords .x, playerCoords .y, playerCoords .z + 1.0)
+                    if onScreen then
+                        SetTextScale(0.35, 0.35)
+                        SetTextFont(4)
+                        SetTextProportional(1)
+                        SetTextColour(255, 255, 255, 255)
+                        SetTextEntry("STRING")
+                        SetTextCentre(1)
+                        AddTextComponentString("[" .. playerID .. "]" .. playerName)
+                        DrawText(screenX, screenY)
+                    end
+                end
+            end
+        else
+            Wait(500)
+        end
+    end
+end)
+
+CreateThread(function()
+    while true do
+        if duty then
+            for _, player in ipairs(ESX.Game.GetPlayers()) do
+                if not playerBlips[player] then
+                    local blip = AddBlipForEntity(GetPlayerPed(player))
+                    
+
+                    SetBlipSprite(blip, 1) -- Blip-Sprite
+                    SetBlipColour(blip, 2) -- Blip-Farbe
+                    SetBlipScale(blip, 0.8) -- Blip-Größe
+                    
+                    BeginTextCommandSetBlipName("STRING")
+                    AddTextComponentString("Steamname: " .. GetPlayerName(player))
+                    EndTextCommandSetBlipName(blip)
+                    
+                    playerBlips[player] = blip
+                else
+                    SetBlipCoords(playerBlips[player], GetEntityCoords(GetPlayerPed(player)))
+                end
+            end
+        end
+        
+        Wait(0)
+    end
+end)
 
 function cleanPlayer(playerPed)
     SetPedArmour(playerPed, 0)
